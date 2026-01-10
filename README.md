@@ -11,9 +11,9 @@ brew install applock
 
 ## Formulas
 
-| Formula | Description |
-|---------|-------------|
-| `applock` | Protect any macOS app behind Touch ID |
+| Formula | Description | Repo |
+|---------|-------------|------|
+| `applock` | Protect any macOS app behind Touch ID | [applock-macos](https://github.com/vdutts7/applock-macos) |
 
 ## Author
 
