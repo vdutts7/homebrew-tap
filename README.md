@@ -5,7 +5,7 @@ Homebrew tap for vd7 tools.
 ## Install
 
 ```bash
-brew tap vdutts/tap
+brew tap vdutts7/tap
 brew install applock
 ```
 
