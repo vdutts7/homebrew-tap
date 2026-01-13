@@ -17,4 +17,4 @@ brew install applock
 
 ## Author
 
-[vdutts7](https://vd7.io) • [@vaboratory](https://twitter.com/vaboratory)
+[vdutts7](https://vd7.io) • [@vdutts7](https://twitter.com/vdutts7)
