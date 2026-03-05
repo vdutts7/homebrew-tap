@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/vdutts7/webp/refs/heads/main/macos-finder.webp" alt="logo" width="80" height="80" />
+<img src="https://raw.githubusercontent.com/vdutts7/squircle/main/webp/homebrew.webp" alt="logo" width="80" height="80" />
 
 <h1 align="center">homebrew-tap</h1>
 <p align="center"><i><b>Homebrew tap for vd7 macOS tools 🍺</b></i></p>
