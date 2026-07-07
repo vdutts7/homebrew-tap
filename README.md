@@ -33,7 +33,7 @@ Single tap for vdutts7 macOS CLI and security tools. Install with `brew install`
 
 ```bash
 brew tap vdutts7/tap
-brew install applock    # or shelllock
+brew install applock    # or shelllock, clip2copy
 ```
 
 <br/>
@@ -44,6 +44,7 @@ brew install applock    # or shelllock
 |--------|-------------|------|
 | `applock` | Protect any macOS app behind Touch ID | [applock-macos](https://github.com/vdutts7/applock-macos) |
 | `shelllock` | Protect any shell command behind Touch ID | [shelllock-macos](https://github.com/vdutts7/shelllock-macos) |
+| `clip2copy` | Auto-copy macOS screenshots to clipboard when saved | [clip2copy](https://github.com/vdutts7/clip2copy) |
 
 <br/>
 
