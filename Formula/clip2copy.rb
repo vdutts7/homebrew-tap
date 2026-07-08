@@ -12,6 +12,7 @@ class Clip2copy < Formula
     system "make", "build-fast"
     bin.install "bin/clip2copy"
 
+    rm_f libexec/"clip2copy-watch"
     (libexec/"clip2copy-watch").write <<~SCRIPT
       #!/bin/zsh
       FSWATCH="#{Formula["fswatch"].opt_bin}/fswatch"
