@@ -1,7 +1,7 @@
 class Clip2copy < Formula
-  desc "Auto-copy macOS screenshots to clipboard when saved"
+  desc "Auto-copy macOS screenshots and screen recordings to clipboard"
   homepage "https://github.com/vdutts7/clip2copy"
-  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.3.4"
+  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.0"
   license "MIT"
   head "https://github.com/vdutts7/clip2copy.git", branch: "main"
 
@@ -15,6 +15,7 @@ class Clip2copy < Formula
     rm_f libexec/"clip2copy-watch"
     libexec.install "scripts/clip2copy-watch.sh" => "clip2copy-watch"
     chmod 0755, libexec/"clip2copy-watch"
+    # launchd PATH is empty — bake brew paths at install time
     inreplace libexec/"clip2copy-watch",
               'FSWATCH="${CLIP2COPY_FSWATCH:-$(command -v fswatch 2>/dev/null)}"',
               "FSWATCH=\"${CLIP2COPY_FSWATCH:-#{Formula["fswatch"].opt_bin}/fswatch}\""
@@ -46,10 +47,14 @@ class Clip2copy < Formula
         clip2copy config set location ~/Pictures/Screenshots
         clip2copy config set rename off
         clip2copy config set prefix ss
+        clip2copy config set record-rename on
+        clip2copy config set record-prefix sr
+        clip2copy config set record-clipboard on
         clip2copy config set shadow on
         clip2copy config validate location ~/Desktop
 
       macOS factory default (when unset): ~/Desktop
+      Note: location is shared by screenshots and screen recordings.
     EOS
   end
 
