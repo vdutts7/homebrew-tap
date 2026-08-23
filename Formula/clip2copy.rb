@@ -1,7 +1,7 @@
 class Clip2copy < Formula
   desc "Auto-copy macOS screenshots and screen recordings to clipboard"
   homepage "https://github.com/vdutts7/clip2copy"
-  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.0"
+  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.1"
   license "MIT"
   head "https://github.com/vdutts7/clip2copy.git", branch: "main"
 
@@ -24,6 +24,18 @@ class Clip2copy < Formula
               "CLIP=\"${CLIP2COPY_BIN:-#{bin}/clip2copy}\""
   end
 
+  def post_install
+    # Upgrade swaps bin/watch but launchd keeps the old process until restart.
+    # Fresh install: no plist yet → skip. Wizard is never auto-run.
+    plist = File.expand_path("~/Library/LaunchAgents/homebrew.mxcl.#{name}.plist")
+    return unless File.exist?(plist)
+
+    ohai "Restarting #{name} (existing LaunchAgent)"
+    system HOMEBREW_BREW_FILE, "services", "restart", name
+  rescue StandardError
+    opoo "Could not restart #{name}; run: brew services restart #{name}"
+  end
+
   service do
     run [opt_libexec/"clip2copy-watch"]
     keep_alive true
@@ -33,12 +45,14 @@ class Clip2copy < Formula
 
   def caveats
     <<~EOS
-      Run the setup wizard (sets screenshot save location + clip2copy config):
+      Fresh install:
         clip2copy setup
-
-      Start / restart the watcher:
         brew services start clip2copy
-        brew services restart clip2copy   # after config changes
+
+      After brew upgrade (if service was already running):
+        brew services restart clip2copy
+        # post_install restarts automatically when the LaunchAgent plist exists
+        # setup is optional — missing record-* keys default to on / sr / on
 
       CLI config anytime:
         clip2copy config show
