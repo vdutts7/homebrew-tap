@@ -1,7 +1,7 @@
 class Clip2copy < Formula
   desc "Auto-copy macOS screenshots and screen recordings to clipboard"
   homepage "https://github.com/vdutts7/clip2copy"
-  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.1"
+  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.2"
   license "MIT"
   head "https://github.com/vdutts7/clip2copy.git", branch: "main"
 
