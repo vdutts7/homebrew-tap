@@ -1,7 +1,7 @@
 class Clip2copy < Formula
   desc "Auto-copy macOS screenshots and screen recordings to clipboard"
   homepage "https://github.com/vdutts7/clip2copy"
-  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.2"
+  url "https://github.com/vdutts7/clip2copy.git", tag: "v1.4.3"
   license "MIT"
   head "https://github.com/vdutts7/clip2copy.git", branch: "main"
 
@@ -52,7 +52,7 @@ class Clip2copy < Formula
       After brew upgrade (if service was already running):
         brew services restart clip2copy
         # post_install restarts automatically when the LaunchAgent plist exists
-        # setup is optional — missing record-* keys default to on / sr / on
+        # setup is optional — missing record-* keys default to on / none / on
 
       CLI config anytime:
         clip2copy config show
